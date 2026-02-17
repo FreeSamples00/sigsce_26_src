@@ -4,12 +4,20 @@
 
 [SIGSCE 26](https://sigcse2026.sigcse.org/)
 
-[Accepted Papers](https://sigcse2026.sigcse.org/track/sigcse-ts-2026-acm-student-research-competition#event-overview)
+[Accepted Paper](https://sigcse2026.sigcse.org/details/sigcse-ts-2026-acm-student-research-competition/16/Improving-Privilege-Levels-and-Memory-Protection-for-Teaching-in-Embedded-Xinu)
 
 ## Authors
 
-1. Spencer Christensen
-2. Spencer O'Brien
+1. [Spencer Christensen](mailto:spencer.christensen@marquette.edu)
+2. [Spencer O'Brien](mailto:spencer.obrien@marquette.edu)
+
+## University
+
+```
+Department of Computer Science
+Marquette University
+Milwaukee WI
+```
 
 ## Paper
 
