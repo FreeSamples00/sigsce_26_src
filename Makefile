@@ -1,5 +1,5 @@
 TARGET_PATH = main
-OUTPUT_PATH = output
+OUTPUT_PATH = docs
 PDF_NAME = Abstract-SIGSCE-26-SRC
 ARTIFACT_DIR = .build_artifacts
 BUILD_FLAGS = -interaction=batchmode -output-directory=$(ARTIFACT_DIR) -jobname=$(PDF_NAME) $(TARGET_PATH)
