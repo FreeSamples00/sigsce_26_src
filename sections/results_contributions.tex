@@ -1,0 +1,12 @@
+\section{Results \& Contributions}
+
+After changing the code, it is now possible to implement page tables and memory protection without illegal memory calls entering the trap handler in M-mode and then delegating the exception down to S-mode. This simplifies the trap handling sequence so students only need to focus on the relationship between S-mode and U-mode. Now students can implement the trap handler without considering more privilege levels than necessary, and they will be able to successfully test their implementation of page tables.
+
+\subsection{Maintainability of Xinu / Hardware}
+
+With the kernel boot sequence now in-line with RISC-V design philosophy, Embedded Xinu should be resilient to boot loader updates thus making it stable and maintainable. Since the previous iteration of the kernel only worked due to the soft crash of the boot sequence landing in M-mode, it will be incompatible with any updated boot loader firmware and must be deprecated.
+
+A major improvement made during this research is the discovery that environment information can be configured in each board's boot loader, enabling fixed MAC addresses and hardware configuration. This allows for a simpler, more robust network boot system using only DHCP instead of relying on interruption over the UART busses, thus reducing need for delicate scripting infrastructure. This puts Embedded Xinu in a state where any university wishing to adopt bare-metal RISC-V education can do so with reduced complexity and headache, gaining a stable and maintainable system.
+
+\subsection{Future Work}
+With the interrupt being redesigned, the PLIC is more amenable to accepting a variety of external interrupts. This enables the possibility of introducing students to asynchronous serial drivers. If this project is developed on the RISC-V version of Xinu, students could then use concepts already introduced in class (e.g. buffers, semaphores, messaging, etc.) to implement an asynchronous serial driver. With an asynchronous driver it should also be possible to port the previous version of the Xinu shell onto RISC-V as the code is architecture agnostic. This would complete the port of Xinu onto RISC-V and make the RISC-V port the most modern and comprehensive version of Embedded Xinu. With these major improvements a study can be conducted on future operating systems courses to determine the educational outcomes of the changes.

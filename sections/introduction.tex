@@ -1,0 +1,19 @@
+\section{Introduction}
+
+\subsection{Motivation for Educational OS Development}
+
+Many colleges and universities offer operating systems courses where students develop minimalistic, lightweight operating systems to familiarize themselves with computer architecture. This exposure allows students to have a lower-level mental framework of how computers work and facilitates a set of problem-solving skills that students will likely use outside of their coursework. One of the factors that influences the applicability of the coursework is the relevance of the architecture the operating system is built in. For example, there have been many advancements in computer architecture, including the facilitation of parallelism, memory protection, caching, trap handling, etc. ~\cite{Advances_In_Arc}, and if the underlying architecture does not support these features, then students cannot gain hands-on experience interacting with these concepts. As architectures change, operating systems that students interact with in these courses need to be ported to more modern architectures and incorporate these new design concepts in order to remain educationally relevant.
+
+\subsection{Background \& Related Work}
+
+\subsubsection{Xinu History}
+
+Embedded Xinu is based on the Xinu operating system developed by Douglas Comer ~\cite{original_xinu_paper} in the 1980s. In the late 2000s Xinu was ported to the MIPS32 architecture under the new name ``Embedded Xinu'', as part of an experimental lab for teaching operating systems on baremetal hardware ~\cite{XINU_mips_port}. Embedded Xinu is designed to be lightweight and architecture agnostic, allowing it to be ported to numerous architectures and hardwares. In 2013 Embedded Xinu was ported to ARM64 on the newly popularized Raspberry Pi platform ~\cite{XINU_rpi_port}, this platform was chosen for its low cost and flexible application. Embedded Xinu has been used as a research platform for educational improvements in a  wide variety of undergraduate and graduate coursework ~\cite{Nexos_paper, teaching_with_rpi, rpi_parallel_compute, rpi_multicore, mips_networking, xest}.
+
+\subsubsection{Embedded Xinu on RISC-V}
+
+The most recent port to RISC-V from ARM ~\cite{XINU_RISCV_port} was completed a few years ago and has successfully implemented both the basic feature set required for coursework, and more advanced, implementation specific features such as paging and virtualization. While this initial port was a great leap forward for Embedded Xinu, some important libraries such as ``pthread'' and the network stack are still under development. Additionally, some quirks of the Nezha hardware platform were left unresolved. The RISC-V port greatly simplified assignments in the associated operating systems course, allowing students to focus less on the implementation minutia, and more on the important concepts at hand. Paging, for example, was improved as the RISC-V hierarchical page tables have consistent size, allowing for page-table walks to be assigned to students for the first time.
+
+\subsection{The Problem}
+
+During the initial port of Xinu onto RISC-V,~\cite{XINU_RISCV_port} the developers implemented a majority of the features/projects from the ARM version of Xinu onto the RISC-V port. However, with the simplified privilege scheme offered by RISC-V, there was considerable motivation to implement projects involving page tables and memory protection. These projects could be made on Embedded Xinu's previous architectures, but implementing these concepts required a level of complexity that would be indigestible to students. With the goal of introducing these concepts to students, the challenge of designing and implementing a functional, compact privilege level scheme became apparent. 
